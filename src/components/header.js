@@ -102,7 +102,6 @@ export default function Header() {
             )}
           </div>
         </div>
-        <p>Hello</p>
       </div>
     </header>
   );
