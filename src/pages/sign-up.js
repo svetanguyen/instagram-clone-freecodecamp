@@ -37,6 +37,7 @@ export default function Signup() {
           username: userName.toLowerCase(),
           fullName,
           emailAddress: emailAddress.toLowerCase(),
+          followers: [],
           following: [],
           dateCreated: Date.now()
         });
