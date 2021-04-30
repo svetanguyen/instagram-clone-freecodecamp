@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { firebase } from '../lib/firebase';
 
 export default async function doesUsernameExist(userName) {
@@ -22,4 +23,14 @@ export async function getUserByUserId(userId) {
     docId: item.id
   }));
   return user;
+}
+
+export async function getSuggestedProfiles(userId, following) {
+  const result = await firebase.firestore().collection('users').limit(10).get();
+  return result.docs
+    .map((user) => ({ ...user.data(), docId: userId }))
+    .filter(
+      (profile) =>
+        profile.userId !== userId && !following.includes(profile.userId)
+    );
 }
