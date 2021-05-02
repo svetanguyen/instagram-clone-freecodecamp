@@ -12,7 +12,7 @@ export default function Sidebar() {
   } = useUser();
 
   return (
-    <div className="p-4">
+    <div className="p-4 hidden lg:block">
       <User username={username} fullName={fullName} />
       <Suggestions
         userId={userId}
