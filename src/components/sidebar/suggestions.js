@@ -1,4 +1,3 @@
-/* eslint-disable array-callback-return */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable no-unused-vars */
@@ -38,7 +37,6 @@ export default function Suggestions({ userId, following, loggedInUserDocId }) {
             profileId={profile.userId}
             userId={userId}
             loggedInUserDocId={loggedInUserDocId}
-            // eslint-disable-next-line prettier/prettier
           />
         ))}
       </div>
