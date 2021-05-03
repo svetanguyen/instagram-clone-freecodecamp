@@ -26,12 +26,13 @@ export default function Comments({
               <Link to={`/p/${item.displayName}`}>
                 <span className="mr-1 font-bold">{item.displayName}</span>
               </Link>
-              <span className="text-gray-base uppercase text-xs mt-2">
-                {posted}
-              </span>
+              <span>{item.comment}</span>
             </p>
           );
         })}
+        <p className="text-gray-base uppercase text-xs mt-2">
+          {formatDistance(posted, new Date())} ago
+        </p>
       </div>
     </>
   );
