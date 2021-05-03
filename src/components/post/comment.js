@@ -1,6 +1,3 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable react/jsx-no-comment-textnodes */
-/* eslint-disable array-callback-return */
 /* eslint-disable react/forbid-prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
@@ -24,14 +21,16 @@ export default function Comments({
           </p>
         )}
         {comments.slice(0, 3).map((item) => {
-          <p key={`${item.comment}-${item.displayName}`} className="mb-1">
-            <Link to={`/p/${item.displayName}`}>
-              <span className="mr-1 font-bold">{item.displayName}</span>
-            </Link>
-            <span className="text-gray-base uppercase text-xs mt-2">
-              {posted}
-            </span>
-          </p>
+          return (
+            <p key={`${item.comment}-${item.displayName}`} className="mb-1">
+              <Link to={`/p/${item.displayName}`}>
+                <span className="mr-1 font-bold">{item.displayName}</span>
+              </Link>
+              <span className="text-gray-base uppercase text-xs mt-2">
+                {posted}
+              </span>
+            </p>
+          );
         })}
       </div>
     </>
