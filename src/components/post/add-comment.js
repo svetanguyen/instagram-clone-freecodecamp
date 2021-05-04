@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable react/forbid-prop-types */
 /* eslint-disable no-unused-vars */
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import FirebaseContext from '../../context/firebase';
 import UserContext from '../../context/user';
@@ -42,7 +42,10 @@ export default function AddComment({
           name="add-comment"
           placeholder="Add a comment..."
           value={comment}
-          onChange={(target) => setComment(target.value)}
+          onChange={(event) => {
+            const val = event.target.value;
+            setComment(val);
+          }}
           ref={commentInput}
         />
         <button
