@@ -22,7 +22,15 @@ export default function AddComment({
   const handleSubmitComment = (event) => {
     event.preventDefault();
 
-    return null;
+    setComments([{ displayName, comment }, ...comments]);
+    setComment('');
+    return firebase
+      .firestore()
+      .collection('photos')
+      .doc(docId)
+      .update({
+        comments: FieldValue.arrayUnion({ displayName, comment })
+      });
   };
 
   return (
@@ -30,7 +38,9 @@ export default function AddComment({
       <form
         method="POST"
         onSubmit={(event) =>
-          comment.length >= 1 ? handleSubmitComment() : event.preventDefault()
+          comment.length >= 1
+            ? handleSubmitComment(event)
+            : event.preventDefault()
         }
         className="flex justify-between pl-0 pr-5"
       >
