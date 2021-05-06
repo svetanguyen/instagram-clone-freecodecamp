@@ -6,7 +6,6 @@ import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import Header from './header';
 import Image from './image';
-import Actions from './actions';
 import Footer from './footer';
 import Comments from './comment';
 
@@ -22,13 +21,9 @@ export default function Post({ content }) {
         likedPhoto={content.userLikedPhoto}
         src={content.imageSrc}
         caption={content.caption}
-      />
-      <Actions
-        docId={content.docId}
-        totalLikes={content.likes.length}
-        likedPhoto={content.userLikedPhoto}
         handleFocus={handleFocus}
       />
+
       <Footer caption={content.caption} username={content.username} />
       <Comments
         docId={content.docId}
