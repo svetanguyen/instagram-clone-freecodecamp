@@ -11,6 +11,19 @@ export default async function doesUsernameExist(userName) {
   return result.docs.length > 0;
 }
 
+export async function getUserByUsername(userName) {
+  const result = await firebase
+    .firestore()
+    .collection('users')
+    .where('username', '==', userName)
+    .get();
+
+  return result.docs.map((item) => ({
+    ...item.data(),
+    docId: item.id
+  }));
+}
+
 export async function getUserByUserId(userId) {
   const result = await firebase
     .firestore()
