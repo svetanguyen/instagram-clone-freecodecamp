@@ -1,9 +1,9 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable no-shadow */
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-import { getUserByUsername } from '../services/firebase';
 import * as ROUTES from '../constants/routes';
+import { getUserByUsername } from '../services/firebase';
 import Header from '../components/header';
 import UserProfile from '../components/profile';
 
@@ -20,7 +20,6 @@ export default function Profile() {
         setUser(user[0]);
         setUserExists(true);
       } else {
-        setUserExists(false);
         history.push(ROUTES.NOT_FOUND);
       }
     }
@@ -28,12 +27,11 @@ export default function Profile() {
     checkUserExists();
     console.log('user', user);
   }, [username, history]);
-
   return userExists ? (
     <div className="bg-gray-background">
       <Header />
-      <div className="mx-auto max-w-screen-lg px-4">
-        <UserProfile />
+      <div className="mx-auto p-4 max-w-screen-lg">
+        <UserProfile user={user} />
       </div>
     </div>
   ) : null;
