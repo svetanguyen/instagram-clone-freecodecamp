@@ -10,7 +10,6 @@ import * as ROUTES from '../constants/routes';
 export default function Header() {
   const { firebase } = useContext(FirebaseContext);
   const { user } = useContext(UserContext);
-
   return (
     <header className="h-16 bg-white border-b border-gray-primary mb-8">
       <div className="container mx-auto px-4 max-w-screen-lg h-full">
@@ -71,7 +70,7 @@ export default function Header() {
                   </svg>
                 </button>
                 <div className="flex items-center cursor-pointer">
-                  <Link to={`/p/${user.displayName}`}>
+                  <Link to={`/p/${user.displayName.toLowerCase()}`}>
                     <img
                       className="rounded-full h-8 w-8 flex"
                       src={`/images/avatars/${user.displayName}.jpg`}

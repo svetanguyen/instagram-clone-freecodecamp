@@ -143,6 +143,25 @@ export async function isUserFollowingProfile(
     ...item.data(),
     docId: item.id
   }));
-
+  console.log('response', response);
   return response;
+}
+
+export async function toggleFollow(
+  isFollowingProfile,
+  activeUserDocId,
+  profileDocId,
+  profileUserId,
+  followingUserId
+) {
+  await updateLoggedInUserFollowing(
+    activeUserDocId,
+    profileUserId,
+    isFollowingProfile
+  );
+  await updateFollowedUsersFollowers(
+    profileDocId,
+    followingUserId,
+    isFollowingProfile
+  );
 }
