@@ -21,7 +21,6 @@ export default function usePhotos() {
       setPhotos(followedUsersPhotos);
     }
     getTimeLinePhotos();
-    console.log(userId);
   }, [userId]);
 
   return { photos };

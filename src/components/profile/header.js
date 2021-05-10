@@ -42,14 +42,12 @@ export default function Header({
         user.username,
         profileUserId
       );
-      console.log('isFollowing', !!isFollowing.username);
       setIsFollowingProfile(!!isFollowing.username);
     };
     if (user.username && profileUserId) {
       isLoggedInUserFollowingProfile();
     }
   }, [user.username, profileUserId]);
-  console.log('isFollowingProfile', isFollowingProfile);
 
   return (
     <div className="grid grid-cols-3 gap-4 justify-between mx-auto max-w-screen-lg">

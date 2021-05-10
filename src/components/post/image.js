@@ -28,7 +28,6 @@ export default function Image({
       });
     setLikes(() => (toggleLiked ? likes : likes + 1));
     setToggleLiked(true);
-    console.log('liked', toggleLiked);
   };
   const handleToggleLiked = async () => {
     setToggleLiked(!toggleLiked);

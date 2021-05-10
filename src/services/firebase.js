@@ -41,7 +41,6 @@ export async function getUserByUserId(userId) {
 export async function getSuggestedProfiles(userId, following) {
   const result = await firebase.firestore().collection('users').limit(10).get();
   const sth = result.docs.map((user) => user.id);
-  console.log('firebase collection', sth);
   return result.docs
     .map((user) => ({ ...user.data(), docId: user.id }))
     .filter(
@@ -71,10 +70,6 @@ export async function updateFollowedUsersFollowers(
   loggedInUserDocId,
   isFollowingProfile
 ) {
-  console.log(
-    'prodile docId',
-    firebase.firestore().collection('users').doc(profileDocId)
-  );
   return firebase
     .firestore()
     .collection('users')
@@ -143,7 +138,6 @@ export async function isUserFollowingProfile(
     ...item.data(),
     docId: item.id
   }));
-  console.log('response', response);
   return response;
 }
 

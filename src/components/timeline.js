@@ -8,7 +8,6 @@ import Post from './post';
 
 export default function Timeline() {
   const { photos } = usePhotos();
-  console.log('photos', photos);
   return (
     <div className="container col-span-2 mx-auto lg:mx-0">
       {!photos ? (
