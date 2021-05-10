@@ -42,8 +42,8 @@ export default function Header({
         user.username,
         profileUserId
       );
-      console.log('isFollowing', isFollowing);
-      setIsFollowingProfile(!!isFollowing.length);
+      console.log('isFollowing', !!isFollowing.username);
+      setIsFollowingProfile(!!isFollowing.username);
     };
     if (user.username && profileUserId) {
       isLoggedInUserFollowingProfile();
