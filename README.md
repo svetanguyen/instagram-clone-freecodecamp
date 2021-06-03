@@ -1,5 +1,5 @@
 #Watch the result here
-https://naughty-chandrasekhar-5b854c.netlify.app/
+https://insta-clone-5b854c.netlify.app/
 
 # Getting Started with Create React App
 
