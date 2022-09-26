@@ -1,6 +1,6 @@
-#Watch the result here
+# Watch the result here
 https://insta-clone-5b854c.netlify.app/
-#Test account
+# Test account
 email: testuser@gmail.com
 pass: test12345
 
