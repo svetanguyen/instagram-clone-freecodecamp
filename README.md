@@ -1,5 +1,8 @@
 #Watch the result here
 https://insta-clone-5b854c.netlify.app/
+##Test account
+email: testuser@gmail.com
+pass: test12345
 
 # Getting Started with Create React App
 
