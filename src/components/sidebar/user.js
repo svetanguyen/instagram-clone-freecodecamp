@@ -1,10 +1,12 @@
 /* eslint-disable react/require-default-props */
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 
 export default function User({ username, fullName }) {
+  const [imgError, setImgError] = useState(false);
+
   return !username || !fullName ? (
     <Skeleton count={1} height={61} />
   ) : (
@@ -15,8 +17,13 @@ export default function User({ username, fullName }) {
       <div className="flex items-center justify-between col-span-1">
         <img
           className="rounded-full w-16 flex mr-3"
-          src={`images/avatars/${username}.jpg`}
+          src={
+            imgError
+              ? 'images/avatars/user.png'
+              : `images/avatars/${username}.jpg`
+          }
           alt={`${username} avatar`}
+          onError={() => setImgError(true)}
         />
       </div>
       <div className="col-span-3">

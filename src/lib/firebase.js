@@ -2,16 +2,20 @@ import Firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 
+// import { seedDatabase } from '../seed';
+
 const config = {
-  apiKey: 'AIzaSyAPuQl3Kmbe_dE0IaWTCIHSEOkQRSdCBtE',
-  authDomain: 'instagram-yt-5166d.firebaseapp.com',
-  projectId: 'instagram-yt-5166d',
-  storageBucket: 'instagram-yt-5166d.appspot.com',
-  messagingSenderId: '863264225258',
-  appId: '1:863264225258:web:dd7cb1621a3bc19e426493'
+  apiKey: 'AIzaSyDVqmVMdetnml-NgcQkgUFX2Bu99xqNRXs',
+  authDomain: 'instagram-32aed.firebaseapp.com',
+  projectId: 'instagram-32aed',
+  storageBucket: 'instagram-32aed.appspot.com',
+  messagingSenderId: '554337417806',
+  appId: '1:554337417806:web:7d98ea9ca9abe5b07ee11f'
 };
 
 const firebase = Firebase.initializeApp(config);
 const { FieldValue } = Firebase.firestore;
+
+// seedDatabase(firebase);
 
 export { firebase, FieldValue };

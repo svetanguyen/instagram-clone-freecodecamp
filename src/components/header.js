@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable no-unused-vars */
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, Router } from 'react-router-dom';
 import FirebaseContext from '../context/firebase';
 import UserContext from '../context/user';
@@ -10,6 +10,7 @@ import * as ROUTES from '../constants/routes';
 export default function Header() {
   const { firebase } = useContext(FirebaseContext);
   const { user } = useContext(UserContext);
+  const [imgError, setImgError] = useState(false);
   return (
     <header className="h-16 bg-white border-b border-gray-primary mb-8">
       <div className="container mx-auto px-4 max-w-screen-lg h-full">
@@ -73,8 +74,13 @@ export default function Header() {
                   <Link to={`/p/${user.displayName?.toLowerCase()}`}>
                     <img
                       className="rounded-full h-8 w-8 flex"
-                      src={`/images/avatars/${user.displayName}.jpg`}
+                      src={
+                        imgError
+                          ? '/images/avatars/user.png'
+                          : `/images/avatars/${user.displayName}.jpg`
+                      }
                       alt={`${user.displayName} profile`}
+                      onError={(e) => setImgError(true)}
                     />
                   </Link>
                 </div>
